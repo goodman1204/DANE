@@ -25,7 +25,7 @@ class PreTrainer(object):
             shape = [self.att_input_dim] + self.att_shape
 
         for i in range(len(shape) - 1):
-            print shape[i], shape[i+1]
+            print(shape[i], shape[i+1])
 
 
             activation_fun1 = lrelu

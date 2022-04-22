@@ -105,7 +105,7 @@ def get_free_gpu(max_gpu_utilization=40, min_free_memory=0.5, num_gpu=1):
   # Read the gpu information multiple times
   num_times_to_average = 5
   current_array = []
-  for ind in xrange(num_times_to_average):
+  for ind in range(num_times_to_average):
     current_array.append(get_gpu_info())
     time.sleep(1)
 
@@ -113,12 +113,12 @@ def get_free_gpu(max_gpu_utilization=40, min_free_memory=0.5, num_gpu=1):
   num_gpus = len(current_array[0])
 
   # Average the gpu information
-  avg_array = [(0,0,str(x)) for x in xrange(num_gpus)]
-  for ind in xrange(num_times_to_average):
-    for gpu_ind in xrange(num_gpus):
+  avg_array = [(0,0,str(x)) for x in range(num_gpus)]
+  for ind in range(num_times_to_average):
+    for gpu_ind in range(num_gpus):
       avg_array[gpu_ind] = (avg_array[gpu_ind][0] + current_array[ind][gpu_ind][0], avg_array[gpu_ind][1] + current_array[ind][gpu_ind][1], avg_array[gpu_ind][2])
 
-  for gpu_ind in xrange(num_gpus):
+  for gpu_ind in range(num_gpus):
     avg_array[gpu_ind] = (float(avg_array[gpu_ind][0]) / num_times_to_average, float(avg_array[gpu_ind][1]) / num_times_to_average, avg_array[gpu_ind][2])
 
   avg_array.sort()

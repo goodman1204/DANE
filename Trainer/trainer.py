@@ -209,7 +209,12 @@ class Trainer(object):
             dane.append('{:.4f}'.format(micro) + ' & ' + '{:.4f}'.format(macro))
         print(' & '.join(dane))
 
+    def get_embedding(self,graph):
 
+        mini_batch = graph.sample(graph.num_nodes, do_shuffle=False, with_label=True)
+        emb = self.sess.run(self.H, feed_dict={self.x: mini_batch.X, self.z: mini_batch.Z})
+
+        return emb, mini_batch.Y
 
     def generate_samples(self, graph):
         X = []

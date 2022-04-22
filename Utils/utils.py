@@ -50,8 +50,8 @@ def multi_label_classification(X, Y, ratio):
 
     micro = f1_score(y_test, y_pred, average="micro")
     macro = f1_score(y_test, y_pred, average="macro")
-    print "micro_f1: %.4f" % (micro)
-    print "macro_f1: %.4f" % (macro)
+    print("micro_f1: %.4f" ,micro)
+    print("macro_f1: %.4f",macro)
 
     return micro, macro
 
