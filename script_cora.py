@@ -92,7 +92,7 @@ if __name__=='__main__':
     model = Model(model_config)
     trainer = Trainer(model, trainer_config)
     trainer.train(graph)
-    trainer.infer(graph)
+    # trainer.infer(graph)
     Z,Y = trainer.get_embedding(graph)
     print("Z shape:",Z.shape)
     print("Y shape:",Y.shape)
